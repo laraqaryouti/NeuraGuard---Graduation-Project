@@ -1,0 +1,63 @@
+.maincontent{
+    margin-left: 250px;
+    background-color: #fff0e3;
+    height: 87vh;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "slnt" 0;
+    text-align: justify;
+}
+.upsitcontent{
+    height: 125vh;
+}
+.wide-article{
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.heading-article{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+}  
+.side-article, .wide-article{
+    background-color: white;
+    font-size: 15px;
+    padding: 20px;
+    border: 1px solid white;
+    border-radius: 15px;
+}
+
+.side-article{
+    width: 46% !important;
+    margin-top: 2% !important;
+    box-sizing: border-box;
+    float: left;
+    height: 530px;
+}
+.left-article{
+    margin-left: 2%;
+    margin-right: 1%;
+    overflow-y: scroll;
+}
+.right-article{
+    margin-right: 2%;
+    margin-left: 2%;
+    overflow: hidden;
+}
+.article-paragraph{
+padding-top: 15px;
+}
+
+.upload{
+    height:100vh;
+}
+@media screen and (min-width: 1824px)  {
+    .upsitcontent{
+        height:90vh;
+    }
+}

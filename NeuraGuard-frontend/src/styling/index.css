@@ -1,0 +1,183 @@
+.content{
+    position: relative;
+    height:91vh;
+    background-color: white;
+    background-image: url("../assets/landing-page.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "slnt" 0;
+
+}
+.main-heading{
+    font-weight: 300;
+    color: #18345B;
+    /*  font-size: 50px; for large screens*/
+    font-size: 40px;
+
+}
+.intro{
+    background-image:url("../assets/arch.png");
+    background-size: contain;
+    background-position: left;
+    background-repeat: no-repeat;
+    height: 80vh;
+    width: 100%;
+    float:left;
+    padding-left: 50px;
+    padding-top: 155px;
+    text-align: left;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.text,.subtext{
+    /*  font-size: 18px; for large screens*/
+    font-size: 16px;
+}
+.text{
+    padding-top: 20px;
+   /* padding-bottom:20px;*/
+    text-align: justify;
+    padding-bottom: 10px;
+}
+.links{
+    color: #FF8A15;
+}
+.button{
+    padding: 10px;
+    text-align: center;
+    border-radius: 25px;
+    border: 1px solid #FF8A15;
+    background-color: #FF8A15;
+    color:white;
+    margin-bottom:10px;
+    width: 120px;
+    height: 45px;
+    font-size: 15px;
+}
+
+.g-button{
+    border: 1px solid white;
+    background-color:  rgb(255, 255, 255);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color:#FF8A15;
+    height:50px;
+    border-radius: 25px;
+
+}
+.navbar{
+    height:7vh;
+}
+
+.about{
+    height:60vh;
+    padding:80px;
+    text-align: left;
+    padding-left: 2%;
+    padding-right: 2%;
+    background-color: #221a14;
+    font-size: 19px;
+    font-weight: 400;
+
+}
+.white{
+    color: white;
+}
+.floating{
+    width: 70%;
+    text-align: justify;
+    color: white;
+}
+.footer{
+    background-color: rgb(37, 35, 35);
+    height: 30vh;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-style: italic;
+}
+#logo{
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    
+
+}
+
+.ppmi{
+    background-image: url("../assets/elder-woman.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height:110vh;
+    padding-top: 80px;
+}
+
+.how{
+    width: 50%;
+    margin-left: 2%;
+    background: rgba(255, 255, 255, 0.901);
+    border-radius: 25px;
+    padding: 45px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-size: 17px;
+    text-align: justify;
+}
+
+.services{
+    padding-top: 80px;
+    height: 70vh;
+    text-align: center;
+    background-color: #F7E9DC;
+}
+.card-services{
+    margin-left: 2%;
+    margin-right: 2%;
+    text-align: left;
+    font-size: 16px;
+    margin-top: 2%;
+}
+.services1{
+    height: 250px !important;
+}
+.card-title{
+    font-size: 19px;
+
+}
+@media screen and (min-width: 1824px)  {
+    .text,.subtext{
+        font-size: 18px;
+    }
+    .main-heading{
+        font-size: 50px;
+    
+    }
+    .button{
+        width: 145px;
+        height:50px;
+        font-size: 18px; 
+    }
+    .footer{
+        height:20vh;
+    }
+    .how{
+        margin-top: 50px;
+        height:560px;
+        font-size: 18px;
+    }
+    .about{
+        padding-top: 120px;
+    }
+    .content{
+        height:93vh;
+    }
+}
+

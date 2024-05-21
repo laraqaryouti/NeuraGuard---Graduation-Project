@@ -1,0 +1,286 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "firstname": "Lara",
+      "middlename": "Nabil",
+      "lastname": "Qaryouti",
+      "username": "12345678",
+      "email": "lara.qaryouti@gmail.com",
+      "password": "test123",
+      "confirmpassword": "test123",
+      "phonenumber": "0797284616",
+      "address": "Amman, Jordan",
+      "gender": "Female",
+      "dob": "2002-08-28",
+      "status": "Healthy Cohort",
+      "img": "src/assets/elderly-tech.jpg"
+    },
+    {
+      "id": "2",
+      "firstname": "Sam",
+      "middlename": "Gabriel",
+      "lastname": "Smith",
+      "username": "23456432",
+      "email": "sam.smith@gmail.com",
+      "password": "test123",
+      "confirmpassword": "test123",
+      "phonenumber": "98543323454",
+      "address": "California, USA",
+      "gender": "Male",
+      "dob": "1950-09-18",
+      "status": "parkinson",
+      "img": "src/assets/elderly-tech.jpg"
+    },
+    {
+      "id": "3",
+      "firstname": "Jay",
+      "middlename": "Ahmad",
+      "lastname": "Scott",
+      "username": "34567898",
+      "email": "jay.scott@gmail.com",
+      "password": "test123",
+      "confirmpassword": "test123",
+      "phonenumber": "3454332345",
+      "address": "Rio, Brazil",
+      "gender": "Male",
+      "dob": "1945-08-28",
+      "status": "healthy",
+      "img": "src/assets/elderly-tech.jpg"
+    },
+    {
+      "id": "8f97",
+      "firstname": "test",
+      "lastname": "testing",
+      "username": "20200455",
+      "email": "gigi81510@gmail.com",
+      "password": "testing123",
+      "confirmpassword": "testing123",
+      "phonenumber": "+123455533244",
+      "address": "hello",
+      "gender": "female",
+      "dob": "2024-05-15",
+      "status": "Health Cohort"
+    },
+    {
+      "id": "1234",
+      "firstname": "Dr. Sarah",
+      "lastname": "Smtih",
+      "username": "1234",
+      "email": "sarahsmith@gmail.com",
+      "password": "testing123",
+      "confirmpassword": "testing123",
+      "phonenumber": "+123455533244",
+      "location": "Amman, Jordan - Al Abdali Hospital",
+      "gender": "female",
+      "dob": "1976-05-15",
+      "speciality":"Neurologist",
+      "licence":"123-456-789",
+      "qualifications":"",
+      "about": "",
+      "doctor": true,
+      "availability": [
+        {
+          "day": "Monday",
+          "slots": [
+            "09:00",
+            "10:00",
+            "11:00",
+            "14:00",
+            "15:00"
+          ]
+        },
+        {
+          "day": "Tuesday",
+          "slots": [
+            "10:00",
+            "11:00",
+            "14:00",
+            "15:00"
+          ]
+        }
+      ]
+    }
+  ],
+  "healthdata": [
+    {
+      "username": "12345678",
+      "upsit": "",
+      "rbdscore": "",
+      "datscan": "",
+      "id": "caab"
+    },
+    {
+      "id": "97c3",
+      "username": "john_doe",
+      "upsit": 35
+    }
+  ],
+  "rbdquestionnaire": [
+    {
+      "username": "12345678",
+      "DRMVIVID": 1,
+      "DRMAGRAC": 0,
+      "DRMNOCTB": 0,
+      "SLPLMBMV": 0,
+      "SLPINJUR": 0,
+      "DRMVERBL": 0,
+      "DRMFIGHT": 1,
+      "DRMUMV": 0,
+      "DRMOBJFL": 0,
+      "MVAWAKEN": 0,
+      "DRMREMEM": 0,
+      "SLPDSTRB": 0,
+      "STROKE": 0,
+      "HETRA": 1,
+      "PARKISM": 0,
+      "RLS": 0,
+      "NARCLPSY": 0,
+      "DEPRS": 0,
+      "EPILEPSY": 0,
+      "BRNINFM": 0,
+      "CNSOTH": 0,
+      "id": "5d6b"
+    }
+  ],
+  "appointments": [
+    {
+      "status": "Confirmed",
+      "type": "Medication Management Appointment",
+      "datetime": "2024-05-16T12:15",
+      "payment": "Credit Card",
+      "description": "",
+      "userId": "1",
+      "id": "1"
+    },
+    {
+      "status": "Cancelled",
+      "type": "DaTScan Appointment",
+      "doctorId": "8f999",
+      "datetime": "2024-05-08T12:15",
+      "payment": "Credit Card",
+      "description": "",
+      "userId": "2",
+      "id": "2"
+    },
+    {
+      "id": "3aa3",
+      "type": "Follow-up Appointment",
+      "datetime": "2024-05-28T13:24",
+      "description": "",
+      "payment": "Cash upon arrival",
+      "status": "Pending",
+      "doctorId": "Dr. Jennifer White",
+      "userId": "3"
+    },
+    {
+      "status": "Confirmed",
+      "type": "Medication Management Appointment",
+      "doctorId": "Dr. Robert Garcia",
+      "datetime": "2024-05-03T01:47",
+      "payment": "Cash upon arrival",
+      "description": "",
+      "userId": "1",
+      "id": "5db7"
+    },
+    {
+      "id": "4bf9",
+      "type": "Medication Management Appointment",
+      "datetime": "",
+      "description": "",
+      "payment": "Cash upon arrival",
+      "status": "Pending",
+      "doctorId": "Dr. Sarah Smith"
+    },
+    {
+      "id": "327e",
+      "type": "Medication Management Appointment",
+      "datetime": "",
+      "description": "testttttttinng",
+      "payment": "Credit Card",
+      "status": "Pending",
+      "doctorId": ""
+    },
+    {
+      "id": "f5fb",
+      "type": "Physical Therapy Appointment",
+      "datetime": "",
+      "description": "",
+      "payment": "Cash upon arrival",
+      "status": "Pending"
+    },
+    {
+      "id": "6acc",
+      "type": "Medication Management Appointment",
+      "datetime": "",
+      "description": "Trying",
+      "payment": "Cash upon arrival",
+      "status": "Pending",
+      "doctorId": ""
+    },
+    {
+      "id": "a8bc",
+      "type": "Medication Management Appointment",
+      "datetime": "",
+      "description": "",
+      "payment": "Cash upon arrival",
+      "status": "Pending",
+      "doctorId": 1234
+    }
+  ],
+  "medications": [
+    {
+      "id": "1",
+      "img": "src/assets/medication3.jpeg",
+      "title": "Benzodiazepine 10mg",
+      "type": "Anxiety Medication",
+      "duration": 3,
+      "startDate": "2024-04-7"
+    },
+    {
+      "id": "2",
+      "img": "src/assets/medication2.jpg",
+      "title": "Ropinirole 2mg",
+      "type": "Dopamine agonist medication",
+      "duration": 4,
+      "startDate": "2024-03-17"
+    },
+    {
+      "id": "3",
+      "img": "src/assets/medication1.jpeg",
+      "title": "Levodopa, Carbidopa 250mg, 25mg",
+      "type": "Levodopa",
+      "duration": 2,
+      "startDate": "2023-06-17"
+    }
+  ],
+  "clinical": [
+    {
+      "id": "1",
+      "symotoms": "Anxiety",
+      "familyPD": "",
+      "treatmentPlan": "",
+      "allergies": "",
+      "tasksWithoutAssistance": "",
+      "medicalConditions": "",
+      "insurance": "Gulf Insurance Group - Jordan"
+    }
+  ],
+  "usersupport": [
+    {
+      "id": "",
+      "SupportType": "",
+      "Description": "",
+      "Status": "",
+      "Severity": ""
+    }
+  ],
+  "symptoms": [
+    {
+      "id": "",
+      "name": "",
+      "type": "",
+      "severity": ""
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+.diagnosis{
+    height: 150vh;
+}
+.diagnosis-title{
+    font-weight: bold;
+}
+.dangerous-info{
+    color:red;
+    font-weight: bold;
+}
+@media screen and (min-width: 1824px) {
+    .diagnosis{
+        height:110vh;
+    }
+}
+

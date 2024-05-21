@@ -1,0 +1,15 @@
+.healthnav{
+    margin-left: 250px;
+    background-color: #fff0e3;
+
+}
+.healthnav-items{
+    color: #18345B !important;
+}
+.healthnav li {
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+
+}

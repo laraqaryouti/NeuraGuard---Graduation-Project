@@ -1,0 +1,71 @@
+.messagecontent{
+    height: 93vh;
+}
+.recentmsg{
+    float: left;
+    background-color: white;
+    height: 100vh;
+    border-right: 1px solid rgba(233, 233, 233, 0.529);
+}
+.search-bar{
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+    background-color: rgb(227, 227, 227);
+    border: 1px solid rgb(227, 227, 227);
+    border-radius: 6px;
+    padding: 6px;
+    color: rgb(172, 172, 172);
+    cursor: auto;
+    margin-bottom: 1%;
+
+}
+.list-chats{
+    overflow-y: scroll;
+    height: 83vh;
+}
+.search-box{
+    background: none;
+    border: none;
+    outline: none;
+}
+.msgcontent{
+    float: left;
+    background-color: white;
+    height: 90vh;
+}
+.msg-header{
+    background-color: #fff0e3;
+    padding-left: 8px;
+    margin-left: 0;
+    padding-top: 18px;
+    height:8vh;
+}
+.send-msg{
+    text-align: center;
+    background-color: #fff0e3;
+    height: 10vh;
+}
+
+.pfp{
+    float: left;
+    height:50px;
+    width:50px;
+    border-radius: 50px;
+    background-color: gray;
+    margin-top: 8px;
+}
+.msg-content{
+    font-size: 12px;
+    font-weight: 300;
+
+}
+.msg{
+    float: left;
+    margin-left: 10px;
+    padding: 10px;
+}
+.name{
+    font-size: 14px;
+    font-weight: 500;
+}

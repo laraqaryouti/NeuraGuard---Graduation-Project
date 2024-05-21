@@ -1,0 +1,15 @@
+.dashboard-header{
+    margin-left:250px;
+    height: 10vh;
+    background-color: rgb(255, 250, 244);
+    padding-left:15px;
+    padding-top:28px;
+}
+.title-header{
+    font-size: 28px;
+    color: #18345B;
+}
+.p-header{
+    margin-top: -10px;
+    color: #5e5e5e;
+}

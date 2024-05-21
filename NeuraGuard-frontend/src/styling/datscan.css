@@ -1,0 +1,8 @@
+.datscancontent{
+    height: 195vh;
+}
+@media screen and (min-width: 1824px)  {
+    .datscancontent{
+        height:140vh;
+    }
+}

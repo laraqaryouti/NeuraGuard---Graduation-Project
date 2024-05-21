@@ -1,0 +1,11 @@
+.help{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.helpform{
+    width: 70%;
+    padding: 25px;
+    height:480px;
+}

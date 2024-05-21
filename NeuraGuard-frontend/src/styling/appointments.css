@@ -1,0 +1,115 @@
+.appointmentcontent{
+    height: 230vh;
+
+}
+.page-header{
+    margin-left: 2%;
+    font-size: 22px;
+    padding-top: 2%;
+}
+.booking{
+    width: 45%;
+    margin-left: 80px;
+    margin-top:-50px;
+}
+.first-article{
+    margin-bottom: 25px;
+    height: 450px;
+    overflow-y: scroll;
+}
+.last-article{
+    margin-bottom: 25px;
+}
+.booking-form{
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.elderly-tech{
+    width: 100%;
+    height:90vh;
+    background-image: url("../assets/old-person-tech.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 100px;
+    margin-bottom: 25px;
+}
+.lists-sub, .lists-title, .lists-subtitle{
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "slnt" 0;
+    }
+.lists-sub{
+    font-size: 14px;
+    margin-top:-3px;
+margin-bottom:-1px;
+}
+.lists-title{
+    font-size: 16px;
+    font-weight: 600;
+}
+.lists-subtitle{
+    color:black;
+    margin-top:-20px;
+    margin-bottom:10px;
+}
+.search-box{
+    background: none;
+    border: none;
+    outline: none;
+}
+.search-bar{
+    width: 100%;
+    background-color: rgb(227, 227, 227);
+    border: 1px solid rgb(227, 227, 227);
+    border-radius: 6px;
+    padding: 6px;
+    color: rgb(172, 172, 172);
+    cursor: auto;
+    margin-bottom: 1%;
+
+}
+
+.drappointments{
+    height:250vh;
+}
+.calendar{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.events {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .events .ant-badge-status {
+    width: 100%;
+    font-size: 12px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .notes-month {
+    font-size: 28px;
+    text-align: center;
+  }
+  .notes-month section {
+    font-size: 28px;
+  }
+
+
+  @media screen and (min-width: 1824px) {
+    .booking{
+        margin-top: 50px;
+    }
+    .appointmentcontent{
+        height:198vh;
+    }
+    .drappointments{
+        height:189vh;
+    }
+}

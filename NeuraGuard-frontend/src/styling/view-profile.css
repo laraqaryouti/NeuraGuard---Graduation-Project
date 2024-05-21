@@ -1,0 +1,142 @@
+.viewprofile{
+    height:100vh;
+}
+.main-info {
+    width: 60%;
+    float: left;
+    margin-right: 25px;
+    height: 175px;
+}
+.none{
+    background-color: none;
+    padding: 0;
+}
+
+.additional-info {
+    width: 34%;
+    float: left;
+    margin-left: 0;
+    height: 175px;
+}
+
+.pp-change{
+    width: auto;
+    float: left;
+}
+.pp-change button{
+    margin-top: 5px;
+    text-align: center;
+}
+.pp-large{
+    background-color: rgba(128, 128, 128, 0);
+    height:100px;
+    width: 100px;
+    border-radius: 60px;
+}
+.main-info-3{
+    width: auto;
+    float: left;
+}
+.test{
+    width: 50%;
+    float: left;
+    display: inline;
+}
+.add-info{
+    width: 50%;
+    float: left;
+}
+.add-info-patient{
+    float: none;
+    width: 100%;
+}
+.tabs{
+    margin-top: 200px;
+}
+.tab-content{
+    background-color: white;
+    border: 1px solid white;
+    margin-top: -20px;
+    height: 380px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.col-left input[type="text"], .col-left input[type="email"]{
+    all:unset;
+
+}
+.col-right{
+    padding-left: 20px;
+    font-weight: bold;
+    padding-right: 100px;
+}
+.col-right, .col-left{
+   
+    font-size: 16px;
+   
+    padding-top: 10px;
+
+}
+.card-title{
+    font-weight: bold;
+}
+.info-list{
+    list-style-type: none;
+}
+.card-username{
+    font-size: 12px;
+    color: gray;
+    margin-top: -5px;
+    margin-bottom: 10px;
+}
+.table-add{
+    margin-top: 10px;
+}
+.col-right-add{
+    padding-left: 195px;
+    padding-bottom: 8px;
+}
+.card-items{
+    color: gray;
+}
+.first-row{
+    padding-top: 25px;
+}
+
+.medication-table th{
+    font-weight: normal;
+    text-align: center;
+    color: gray;
+    padding-right: 70px;
+    padding-left: 70px;
+}
+
+.table-number{
+    text-align: center;
+}
+.title-medication{
+    font-weight: bold;
+}
+.drcontent{
+    overflow-y: "scroll";
+    height: "350px";
+}
+.col-left input{
+    width: 400px !important;
+}
+@media screen and (min-width: 1824px) {
+    .tab-content{
+        height: 550px;
+    }
+    .col-right, .col-left{
+        font-size: 16px;
+        padding-top: 20px;
+    }
+    .first-row{
+        padding-top: 30px;
+    }
+    .drcontent{
+        height: 500px;
+    }
+}

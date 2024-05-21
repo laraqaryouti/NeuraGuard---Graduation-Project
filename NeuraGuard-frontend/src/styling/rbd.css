@@ -1,0 +1,11 @@
+.questionnaire{
+    width: 50% !important;
+}
+.rbdcontent{
+    height: 285vh;
+}
+@media screen and (min-width: 1824px)  {
+    .rbdcontent{
+        height:210vh;
+    }
+}
