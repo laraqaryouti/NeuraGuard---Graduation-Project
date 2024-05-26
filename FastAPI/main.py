@@ -18,7 +18,11 @@ import logging
 import joblib
 import numpy as np
 import sklearn
-
+from email_utils import send_email
+import logging
+from io import BytesIO
+from fastapi.responses import StreamingResponse,JSONResponse
+import base64
 
 
 app = FastAPI()
@@ -1069,4 +1073,157 @@ def get_combined_data(user_id: str, db: Session = Depends(get_db)):
     )
     
     return combined_data
+class InputData(BaseModel):
+    PATNO: int
+    ENROLL_AGE: float
+    AV133STDY: float
+    TAUSTDY: float
+    GAITSTDY: float
+    PISTDY: float
+    SVASTDY: float
+    PPMI_ONLINE_ENROLL: float
+    PHENOCNV: float
+    ENRLPINKI: float
+    ENRLPRKN: float
+    ENRLSRDC: float
+    ENRLHPSM: float
+    ENRURED: float
+    ENRLURRK2: float
+    ENRLENCA: float
+    ENRLGBA: float
+    TOTAL_CORRECT: float
+    PTCGBOTH: float
+    DRMVIVID: float
+    DRMAGRAC: float
+    DRMNOCTB: float
+    SLPLMBMV: float
+    SLPINJUR: float
+    DRMVERBL: float
+    DRMFIGHT: float
+    DRMUMV: float
+    DRMOBJFL: float
+    MVAWAKEN: float
+    DRMREMEM: float
+    SLPDSTRB: float
+    STROKE: float
+    HETRA: float
+    PARKISM: float
+    RLS: float
+    NARCLPSY: float
+    DEPRS: float
+    EPILEPSY: float
+    BRNINFM: float
+    DATSCAN: float
+    DATSCANTRC: float
+    SCNLOC: float
+    SCNINJCT: float
+    DATSCAN_CAUDATE_R: float
+    DATSCAN_CAUDATE_L: float
+    DATSCAN_PUTAMEN_R: float
+    DATSCAN_PUTAMEN_L: float
+    DATSCAN_PUTAMEN_R_ANT: float
+    DATSCAN_PUTAMEN_L_ANT: float
+    DATSCAN_VISINTRP: float
 
+
+
+
+
+@app.post('/predict')
+def predict(data: InputData):
+    input_data = [
+        data.PATNO,
+        data.ENROLL_AGE,
+        data.AV133STDY,
+        data.TAUSTDY,
+        data.GAITSTDY,
+        data.PISTDY,
+        data.SVASTDY,
+        data.PPMI_ONLINE_ENROLL,
+        data.PHENOCNV,
+        data.ENRLPINKI,
+        data.ENRLPRKN,
+        data.ENRLSRDC,
+        data.ENRLHPSM,
+        data.ENRURED,
+        data.ENRLURRK2,
+        data.ENRLENCA,
+        data.ENRLGBA,
+        data.TOTAL_CORRECT,
+        data.PTCGBOTH,
+        data.DRMVIVID,
+        data.DRMAGRAC,
+        data.DRMNOCTB,
+        data.SLPLMBMV,
+        data.SLPINJUR,
+        data.DRMVERBL,
+        data.DRMFIGHT,
+        data.DRMUMV,
+        data.DRMOBJFL,
+        data.MVAWAKEN,
+        data.DRMREMEM,
+        data.SLPDSTRB,
+        data.STROKE,
+        data.HETRA,
+        data.PARKISM,
+        data.RLS,
+        data.NARCLPSY,
+        data.DEPRS,
+        data.EPILEPSY,
+        data.BRNINFM,
+        data.DATSCAN,
+        data.DATSCANTRC,
+        data.SCNLOC,
+        data.SCNINJCT,
+        data.DATSCAN_CAUDATE_R,
+        data.DATSCAN_CAUDATE_L,
+        data.DATSCAN_PUTAMEN_R,
+        data.DATSCAN_PUTAMEN_L,
+        data.DATSCAN_PUTAMEN_R_ANT,
+        data.DATSCAN_PUTAMEN_L_ANT,
+        data.DATSCAN_VISINTRP
+    ]
+
+    try:
+        input_array = np.array(input_data).reshape(1, -1)
+        prediction = model.predict(input_array)
+        return {'prediction': prediction.tolist()}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+def generate_strong_password(length=12):
+    characters = string.ascii_letters + string.digits + string.punctuation
+    password = ''.join(random.choice(characters) for i in range(length))
+    return password
+
+
+class ResetPasswordRequest(BaseModel):
+    email: str
+
+
+
+
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+@app.post("/reset-password/")
+async def reset_password(request: ResetPasswordRequest, db: Session = Depends(get_db)):
+    try:
+        user = db.query(User).filter(User.Email == request.email).first()
+        if not user:
+            raise HTTPException(status_code=404, detail="User not found")
+        
+        new_password = generate_strong_password()
+        user.hashed_password = pwd_context.hash(new_password)
+        db.commit()
+
+        subject = "Password Reset Request"
+        body = f"Your new temporary password is: {new_password}\n\nPlease log in and change your password immediately.\n\nYou can your password after logging in by selecting on view profile on the sidebar on the left then click on Reset Password Tab then you can change your password."
+
+        send_email(request.email, subject, body)
+        
+        return {"message": "A new temporary password has been sent to your email."}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))

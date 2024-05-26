@@ -81,7 +81,11 @@ function Sidebar({isOpen}) {
       setlastname(response.data.User.lname);
       setIsLoading(false);
     } catch (error) {
-      console.error("Error fetching data:", error);
+      if (error.response && error.response.status === 401) {
+        logout();
+      } else {
+        console.error("Error fetching data:", error);
+      }
     }
   };
 

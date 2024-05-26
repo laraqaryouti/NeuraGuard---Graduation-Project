@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import api from "../api";
 import { FloatButton } from "antd";
 import { DoubleLeftOutlined } from '@ant-design/icons';
-
+import React from "react";
 function ViewProfile() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [data, setData] = useState([]);

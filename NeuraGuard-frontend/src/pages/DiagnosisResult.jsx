@@ -54,7 +54,7 @@ function DiagnosisResult(){
             Book a consultation
           </a>
     </div>
-    <div style={{ display: 'flex', marginTop:"25px" , marginBottom:"50px"}} className="chart-container">
+  <div style={{ display: 'flex', marginTop:"25px" , marginBottom:"50px"}} className="chart-container">
       <div style={{ height: '300px', width: '50%', marginLeft: '25px' }} className="chart1">
         <h1 className="heading-article">Health Summary</h1>
         <PieChart />

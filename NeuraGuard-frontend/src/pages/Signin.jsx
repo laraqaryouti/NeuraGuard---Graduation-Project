@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { message, Modal } from "antd";
 import NavBar from "../components/Navbar";
 import "../styling/signin.css";
-
+import api from "../api";
 import { loginUser } from "../AuthService";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthContext";
@@ -16,6 +16,7 @@ function SignIn() {
   const [error, setError] = useState(null);
   const [openModal, setOpenModal] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
+  const [email, setEmail] = useState("");
 
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -63,10 +64,11 @@ function SignIn() {
   const handleModalOk = async () => {
     setConfirmLoading(true);
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      console.log("Password reset email sent");
+      await api.post('/reset-password/', { email });
+      message.success("New Password is Sent!");
     } catch (error) {
       console.error("Error sending password reset email:", error);
+      message.error("Error in resetting password.")
     } finally {
       setConfirmLoading(false);
       setOpenModal(false);
@@ -149,6 +151,9 @@ function SignIn() {
             name="email"
             id="email"
             placeholder="Enter your Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
           />
         </form>
       </Modal>

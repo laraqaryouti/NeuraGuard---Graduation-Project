@@ -35,9 +35,13 @@ function Sidebar({isOpen}) {
       setuserID(response.data.User.user_id);
       setfirstname(response.data.User.fname);
       setlastname(response.data.User.lname);
-      setIsLoading(false); 
+      setIsLoading(false);
     } catch (error) {
-      console.error("Error fetching data:", error);
+      if (error.response && error.response.status === 401) {
+        logout();
+      } else {
+        console.error("Error fetching data:", error);
+      }
     }
   };
 
