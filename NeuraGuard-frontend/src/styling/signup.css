@@ -23,3 +23,11 @@
         height: 140vh;
     }
 }
+@media screen and (min-width:700px) and (max-width:991px){
+    .signup-form{
+        width: 90%;
+    }
+    .signup{
+        height: 125vh;
+    }
+}

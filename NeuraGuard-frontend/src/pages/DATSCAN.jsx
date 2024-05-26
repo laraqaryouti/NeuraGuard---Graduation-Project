@@ -3,7 +3,8 @@ import Sidebar from "../components/Sidebar";
 import "../styling/datscan.css";
 
 import React, { useState, useEffect } from "react";
-
+import { DoubleLeftOutlined } from '@ant-design/icons';
+import { FloatButton } from "antd";
 import api from "../api";
 import { message } from "antd";
 
@@ -107,11 +108,17 @@ const DATSCAN = () => {
       Datscan_Result: false,
     });
   };
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
 
   return (
     <>
-      <Sidebar />
+      <Sidebar isOpen={isSidebarOpen} />
       <HealthNav />
+      <FloatButton onClick={toggleSidebar} icon={<DoubleLeftOutlined />}  className="side-button" aria-label="toggle-sidebar"/>
       <div className="maincontent datscancontent">
         <div className="wide-article">
           <h1 className="heading-article">

@@ -61,3 +61,33 @@ padding-top: 15px;
         height:90vh;
     }
 }
+
+@media screen and (min-width:700px) and (max-width:1024px){
+    .maincontent.upsitcontent{
+        width: 100%;
+        margin-left: 0px;
+    }
+    .maincontent.upsitcontent.open{
+        margin-left: 0px;
+    }
+    .side-article{
+        width:  95% !important;
+        float: none;
+    }
+    .maincontent.upsitcontent{
+        height: 150vh;
+    }
+
+}
+@media screen and (max-width:699px){
+    .maincontent.upsitcontent{
+        width: 100%;
+        margin-left: 0;
+        height: 300vh;
+    }
+    .side-article{
+        width:  95% !important;
+        float: none;
+        height: 650px;
+    }
+}

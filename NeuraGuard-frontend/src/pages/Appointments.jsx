@@ -3,6 +3,8 @@ import Sidebar from "../components/Sidebar";
 import Doctors from "../components/Doctors";
 import ViewAppointments from "../components/ViewAppointments";
 import api from "../api";
+import { DoubleLeftOutlined } from '@ant-design/icons';
+import { FloatButton } from "antd";
 
 function Appointments() {
   const [formData, setFormData] = useState({
@@ -120,10 +122,17 @@ function Appointments() {
       );
     }
   };
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
 
   return (
     <>
-      <Sidebar />
+      <Sidebar isOpen={isSidebarOpen}/>
+      <FloatButton onClick={toggleSidebar} icon={<DoubleLeftOutlined />}  className="side-button" />
       <div className="maincontent appointmentcontent">
         <h1 className="page-header" style={{ marginLeft: "15px" }}>
           Manage Appointments
@@ -308,7 +317,9 @@ function Appointments() {
           </div>
           <div className="wide-article last-article">
             <h1 className="heading-article">View All Appointments</h1>
+            <div className="appt-view">
             <ViewAppointments />
+            </div>
           </div>
         </div>
       </div>
@@ -317,3 +328,4 @@ function Appointments() {
 }
 
 export default Appointments;
+ 

@@ -3,7 +3,8 @@ import SideBar from "../components/Sidebar";
 import api from "../api";
 import "../styling/help.css";
 import { message } from "antd";
-
+import { FloatButton } from "antd";
+import { DoubleLeftOutlined } from '@ant-design/icons';
 const Help = () => {
   const [inputs, setInputs] = useState({
     SupportType: "Unprofessional Behavior",
@@ -60,10 +61,16 @@ const Help = () => {
       message.error("Error Submitting Ticket.");
     }
   };
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
 
   return (
     <>
-      <SideBar />
+      <SideBar isOpen={isSidebarOpen}/>
+      <FloatButton onClick={toggleSidebar} icon={<DoubleLeftOutlined />}  className="side-button" />
       <div className="maincontent help">
         <div className="wide-article helpform">
           <h1 className="heading-article">Help & Support</h1>

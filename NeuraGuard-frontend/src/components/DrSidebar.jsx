@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, Link } from "react-router-dom";
-import api from "../api"; 
+import { useAuth } from "../AuthContext";
+import { useNavigate, NavLink, Link } from "react-router-dom";
+import api from "../api";
 
-function Sidebar() {
+function Sidebar({isOpen}) {
+  const [authToken] = useState(localStorage.getItem("token"));
+  const navigate = useNavigate();
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [clickedIndex, setClickedIndex] = useState(null);
   const [logoutHovered, setLogoutHovered] = useState(false);
@@ -10,6 +13,16 @@ function Sidebar() {
   const [userID, setuserID] = useState("");
   const [firstname, setfirstname] = useState("");
   const [lastname, setlastname] = useState("");
+
+  useEffect(() => {
+    if (!authToken) {
+      navigate("/signin");
+    } else {
+      fetchData();
+    }
+  }, [authToken, navigate]);
+
+  const { logout } = useAuth();
 
   const icons = [
     { id: 1, img: "src/assets/icons/dashboard.png" },
@@ -34,7 +47,6 @@ function Sidebar() {
     "/error",
     "/error",
     "/error",
-    "/signin",
   ];
   const labels = [
     "Dashboard",
@@ -43,7 +55,6 @@ function Sidebar() {
     "Messages",
     "Settings",
     "Help",
-    "Log out",
   ];
   const handleLogoutHover = (isHovered) => {
     setLogoutHovered(isHovered);
@@ -55,10 +66,6 @@ function Sidebar() {
   const handleIconClick = (index) => {
     setClickedIndex(index);
   };
-
-  useEffect(() => {
-    fetchData();
-  }, [userID]);
 
   const fetchData = async () => {
     const token = localStorage.getItem("token");
@@ -72,7 +79,7 @@ function Sidebar() {
       setuserID(response.data.User.user_id);
       setfirstname(response.data.User.fname);
       setlastname(response.data.User.lname);
-      setIsLoading(false); // Data is loaded
+      setIsLoading(false);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -80,7 +87,7 @@ function Sidebar() {
 
   return (
     <div className="App">
-      <div className="sidebar open">
+    <div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
         <h1 className="sidebar-title">NeuraGuard</h1>
         <div className="pp">
           {isLoading ? (
@@ -91,7 +98,7 @@ function Sidebar() {
           ) : (
             <img
               loading="eager"
-              src={"src/assets/doctor-portrait.jpg"} // Assuming you have a placeholder image
+              src={"src/assets/doctor-portrait.jpg"} 
               alt="Profile Picture"
               className="pp"
               style={{
@@ -100,7 +107,6 @@ function Sidebar() {
                 height: "100%",
                 margin: "0",
                 padding: "0",
-              
               }}
             />
           )}
@@ -183,9 +189,10 @@ function Sidebar() {
                   </li>
                 </div>
               ))}
-               <li
+              <li
                 onMouseOver={() => handleLogoutHover(true)}
                 onMouseOut={() => handleLogoutHover(false)}
+                onClick={logout}
                 style={{ marginLeft: "5px" }}
               >
                 <img

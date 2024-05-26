@@ -102,7 +102,7 @@ margin-bottom:-1px;
   }
 
 
-  @media screen and (min-width: 1824px) {
+@media screen and (min-width: 1824px) {
     .booking{
         margin-top: 50px;
     }
@@ -111,5 +111,77 @@ margin-bottom:-1px;
     }
     .drappointments{
         height:189vh;
+    }
+}
+
+@media screen and (min-width:700px) and (max-width:1024px){
+    .maincontent.appointmentcontent{
+        width: 100%;
+        height:195vh;
+        margin-left: 0;
+    }
+    .booking{
+        width: 60%;
+        margin-top: 50px;
+    }
+    .appt-view{ 
+        width: 100%;
+        overflow-x: scroll;
+    }
+    .appt-view::-webkit-scrollbar{
+        width: 5px;
+        height: 5px;
+        border-radius: 15px;
+    }
+    .drappointments{
+        width: 100%;
+        margin-left: 0;
+    }
+
+}
+@media screen and (max-width:699px){
+
+    .maincontent.appointmentcontent{
+        width: 100%;
+        margin-left: 0;
+    }
+    .appt-view{ 
+        width: 100%;
+        overflow-x: scroll;
+    }
+    .booking{
+        width: 90%;
+        margin-left: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       
+    }
+    .booking-form{
+        background-color: none;
+        height: 600px;
+        overflow: scroll;
+    }
+    .booking-form::-webkit-scrollbar{
+        width: 5px;
+        
+    }
+    .appt-view::-webkit-scrollbar{
+        width: 5px;
+        height: 5px;
+        border-radius: 15px;
+    }
+    .drappointments{
+        margin-left: 0;
+        width: 100%;
+    }
+    .pending-appt,.allapts{
+        width: 96%;
+        overflow: scroll;
+
+    }
+    .pending-appt::-webkit-scrollbar,.allapts::-webkit-scrollbar{
+        height: 5px;
+        width: 5px;
     }
 }

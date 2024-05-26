@@ -9,3 +9,24 @@
         height:210vh;
     }
 }
+
+@media screen and (min-width:700px) and (max-width:1024px){
+    .questionnaire{
+        width: 100% !important;
+    }
+    .rbdcontent{
+        height: 200vh;
+        width: 100%;
+        margin-left: 0;
+    }
+}
+@media screen and (max-width:699px){
+    .rbdcontent{
+        width: 100%;
+        margin-left: 0;
+        height: 390vh;
+    }
+    .questionnaire{
+        width: 100% !important;
+    }
+}

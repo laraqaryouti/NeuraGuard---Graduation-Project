@@ -6,10 +6,11 @@ import TypeformEmbed from "../components/TypeformEmbed";
 import { LineChart } from "../components/LineChart";
 import { LineChartnonmotor } from "../components/LineChart-nonmotor";
 import { Tag, FloatButton } from "antd";
+import { DoubleLeftOutlined } from '@ant-design/icons';
 
 import React, { useEffect, useState } from "react";
 import api from "../api";
-
+ 
 function Dashboard_Patient() {
   const [fName, setName] = useState("User");
   const [userID, setUserID] = useState("");
@@ -137,9 +138,16 @@ function Dashboard_Patient() {
     year: "numeric",
   });
 
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
     <>
-      <Sidebar />
+      <Sidebar isOpen={isSidebarOpen}/>
+      <FloatButton onClick={toggleSidebar} icon={<DoubleLeftOutlined />} className="side-button" aria-label="toggle-sidebar"/>
       <div className="maincontent dashboard">
         <div className="dashboard-header">
           <h1 className="main-page-title">Welcome Back, {fName}!</h1>

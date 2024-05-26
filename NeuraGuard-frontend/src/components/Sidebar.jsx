@@ -3,7 +3,7 @@ import { useAuth } from "../AuthContext";
 import { useNavigate, NavLink } from "react-router-dom";
 import api from "../api"; 
 
-function Sidebar() {
+function Sidebar({isOpen}) {
   const [authToken] = useState(localStorage.getItem("token"));
   const navigate = useNavigate();
   const [userID, setuserID] = useState("");
@@ -35,7 +35,7 @@ function Sidebar() {
       setuserID(response.data.User.user_id);
       setfirstname(response.data.User.fname);
       setlastname(response.data.User.lname);
-      setIsLoading(false); // Data is loaded
+      setIsLoading(false); 
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -94,7 +94,7 @@ function Sidebar() {
 
   return (
     <div className="App">
-      <div className="sidebar">
+      <div div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
         <h1 className="sidebar-title">NeuraGuard</h1>
         <div className="pp">
           {isLoading ? (

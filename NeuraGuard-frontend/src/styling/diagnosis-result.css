@@ -13,4 +13,42 @@
         height:110vh;
     }
 }
+@media screen and (min-width:700px) and (max-width:1024px){
+    .maincontent.diagnosis{
+        width: 100%;
+        height: 155vh;
+        margin-left: 0;
+    }
+    .chart1,.chart2{
+        width: 95% !important;
 
+    }
+    .chart2{
+        margin-left: 25px;
+        margin-top: 60px;
+    }
+    .chart-container{
+        display: block !important;
+    }
+
+}
+@media screen and (max-width:699px) {
+    .maincontent.diagnosis{
+        width: 100%;
+        height: 275vh;
+        margin-left: 0;
+    }
+    .chart1,.chart2{
+        width: 90% !important;
+        margin-left: 8px;
+
+    }
+
+    .chart2{
+        margin-top: 90px;
+        margin-bottom: -60px;
+    }
+    .chart-container{
+        display: block !important;
+    }
+}

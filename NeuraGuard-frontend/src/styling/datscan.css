@@ -1,8 +1,28 @@
 .datscancontent{
-    height: 195vh;
+    height: 245vh;
+    
+}
+.datscan-input{
+    margin-bottom: 20px;
 }
 @media screen and (min-width: 1824px)  {
     .datscancontent{
         height:140vh;
+    }
+
+}
+@media screen and (min-width:700px) and (max-width:1024px){
+    .maincontent.datscancontent{
+        width: 100%;
+        height: 210vh;
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width:699px){
+    .maincontent.datscancontent{
+        width: 100%;
+        height:  320vh;
+        margin-left: 0;
     }
 }

@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import { Tabs } from "antd";
 const { TabPane } = Tabs;
 import api from "../api";
-
+import { FloatButton } from "antd";
+import { DoubleLeftOutlined } from '@ant-design/icons';
 const TabContent2 = () => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -52,6 +53,7 @@ const TabContent2 = () => {
         paddingLeft: "25px",
         paddingTop: "25px",
       }}
+      className="reset-pass"
     >
       <h1 className="heading-article">Reset your password</h1>
       <p>Choose a new & strong password of minimum 8 characters.</p>
@@ -228,8 +230,9 @@ const TabContent1 = () => {
 
   const handleEnableEdit = () => {
     setIsEditing(true);
-    setLocalInputDisabled(false); // Enable inputs when "Edit" is clicked
+    setLocalInputDisabled(false); 
   };
+
 
   return (
     <div>
@@ -489,10 +492,18 @@ function ViewProfile() {
     }
     return age;
   };
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
+
 
   return (
     <>
-      <DrSidebar />
+      <DrSidebar isOpen={isSidebarOpen}/>
+      <FloatButton onClick={toggleSidebar} icon={<DoubleLeftOutlined />}  className="side-button" />
       <div className="maincontent viewprofile">
         <h1 className="page-header">View Profile</h1>
         <div className="header-viewprofile">

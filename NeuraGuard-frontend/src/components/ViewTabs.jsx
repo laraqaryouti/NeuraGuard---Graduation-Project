@@ -815,6 +815,7 @@ const TabContent4 = () => {
         paddingLeft: "25px",
         paddingTop: "25px",
       }}
+      className="reset-pass"
     >
       <h1 className="heading-article">Reset your password</h1>
       <p>Choose a new & strong password of minimum 8 characters.</p>

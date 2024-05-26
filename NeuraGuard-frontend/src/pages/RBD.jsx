@@ -1,208 +1,9 @@
-// import HealthNav from "../components/HealthNav";
-// import Sidebar from "../components/Sidebar";
-// import React, { useState, useEffect } from "react";
-// import api from "../api";
-// import App from "../App";
-
-// function RBD() {
-//   const questions = [
-//     "Do you experience exceptionally vivid and lifelike dreams?",
-//     "Do your dreams often involve aggressive or action-packed scenarios?",
-//     "Have you been observed engaging in unusual or complex behaviors during the night?",
-//     "Do you frequently experience sudden and involuntary movements of your limbs during sleep?",
-//     "Have you ever been told that you exhibit aggressive or harmful behavior towards your bed partner while asleep?",
-//     "Do you have any recollection of speaking during sleep?",
-//     "Do you frequently experience sudden jerking or kicking movements while asleep?",
-//     "Have you noticed objects falling or being displaced during your sleep?",
-//     "Do you frequently wake up due to your own movements during sleep?",
-//     "Do you typically remember your dreams upon waking?",
-//     "Do you feel that your sleep is frequently disrupted or of poor quality?",
-//     "Have you experienced a stroke or transient ischemic attack (TIA) in the past?",
-//     "Have you sustained significant head trauma in the past?",
-//     "Have you been diagnosed with Parkinsonism by a healthcare professional?",
-//     "Do you frequently experience discomfort or an urge to move your legs while trying to sleep?",
-//     "Have you been diagnosed with narcolepsy by a healthcare professional?",
-//     "Do you currently experience symptoms of depression, such as persistent sadness or loss of interest?",
-//     "Have you been diagnosed with epilepsy or experienced seizures?",
-//     "Have you been diagnosed with an inflammatory disease affecting your brain?",
-//     "Are there any additional factors or conditions that you believe may be relevant to your sleep behaviors or experiences?",
-//   ];
-//   // const [responses, setResponses] = useState(Array(20).fill("No")); // Initialize with default "No" responses
-//   const [formData, setFormData] = useState({
-//     RBDResponse1s: "",
-//     RBDResponse2s: "",
-//     RBDResponse3s: "",
-//     RBDResponse4s: "",
-//     RBDResponse5s: "",
-//     RBDResponse6s: "",
-//     RBDResponse7s: "",
-//     RBDResponse8s: "",
-//     RBDResponse9s: "",
-//     RBDResponse10s: "",
-//     RBDResponse11s: "",
-//     RBDResponse12s: "",
-//     RBDResponse13s: "",
-//     RBDResponse14s: "",
-//     RBDResponse15s: "",
-//     RBDResponse16s: "",
-//     RBDResponse17s: "",
-//     RBDResponse18s: "",
-//     RBDResponse19s: "",
-//     RBDResponse20s: "",
-//   });
-//   const [userID, setuserID] = useState("User");
-//   const fetchRBDQuestionnaire = async () => {
-//     const token = localStorage.getItem("token");
-//     const response = await api.get("/RBDQuestionnaire/");
-//     setFormData(response.data);
-//     const userResponse = await api.get("/", {
-//       headers: {
-//         "Content-Type": "application/json",
-//         Authorization: `Bearer ${token}`,
-//       },
-//     });
-//     setuserID(userResponse.data.User.user_id);
-//   };
-
-//   useEffect(() => {
-//     fetchRBDQuestionnaire();
-//   }, []);
-
-//   const handleChange = (event) => {
-//     const { name, type, checked, value } = event.target;
-//     setFormData((prevFormData) => ({
-//       ...prevFormData,
-//       [name]: value,
-//     }));
-//   };
-
-//   const handleSubmit = async (event) => {
-//     event.preventDefault();
-
-//     const formattedData = {
-//       RBDResponse1: formData.RBDResponse1s,
-//       RBDResponse2: formData.RBDResponse2s,
-//       RBDResponse3: formData.RBDResponse3s,
-//       RBDResponse4: formData.RBDResponse4s,
-//       RBDResponse5: formData.RBDResponse5s,
-//       RBDResponse6: formData.RBDResponse6s,
-//       RBDResponse7: formData.RBDResponse7s,
-//       RBDResponse8: formData.RBDResponse8s,
-//       RBDResponse9: formData.RBDResponse9s,
-//       RBDResponse10: formData.RBDResponse10s,
-//       RBDResponse11: formData.RBDResponse11s,
-//       RBDResponse12: formData.RBDResponse12s,
-//       RBDResponse13: formData.RBDResponse13s,
-//       RBDResponse14: formData.RBDResponse14s,
-//       RBDResponse15: formData.RBDResponse15s,
-//       RBDResponse16: formData.RBDResponse16s,
-//       RBDResponse17: formData.RBDResponse17s,
-//       RBDResponse18: formData.RBDResponse18s,
-//       RBDResponse19: formData.RBDResponse19s,
-//       RBDResponse20: formData.RBDResponse20s,
-//       UserID: userID,
-//     };
-
-//     const headers = {
-//       "Content-Type": "application/json",
-//     };
-//     api.post("/RBDQuestionnaire/", formattedData, { headers });
-//     fetchRBDQuestionnaire();
-//     setFormData({
-//       RBDResponse1s: "",
-//       RBDResponse2s: "",
-//       RBDResponse3s: "",
-//       RBDResponse4s: "",
-//       RBDResponse5s: "",
-//       RBDResponse6s: "",
-//       RBDResponse7s: "",
-//       RBDResponse8s: "",
-//       RBDResponse9s: "",
-//       RBDResponse10s: "",
-//       RBDResponse11s: "",
-//       RBDResponse12s: "",
-//       RBDResponse13s: "",
-//       RBDResponse14s: "",
-//       RBDResponse15s: "",
-//       RBDResponse16s: "",
-//       RBDResponse17s: "",
-//       RBDResponse18s: "",
-//       RBDResponse19s: "",
-//       RBDResponse20s: "",
-//     });
-//   };
-
-//   return (
-//     <>
-//       <Sidebar />
-//       <HealthNav />
-//       <div className="maincontent rbdcontent">
-//         <div className="wide-article">
-//           <h1 className="heading-article">
-//             Rapid Eye Movement (REM) Sleep Behavior Disorder (RBD) Questionnaire{" "}
-//           </h1>
-//           <p>
-//             Rapid Eye Movement Sleep Behavior Disorder (RBD) is a common and
-//             early symptom in Parkinson's disease (PD), characterized by the loss
-//             of normal muscle paralysis during REM sleep, leading to vivid and
-//             often violent dream enactments. To assess the presence of RBD in PD
-//             patients, a questionnaire, typically consisting of 20 questions, has
-//             been developed. Each question prompts a yes or no response, aiming
-//             to capture specific behaviors associated with RBD, such as
-//             physically acting out dreams or experiencing sleep-related injuries.
-//             This questionnaire provides a structured approach to identifying and
-//             evaluating RBD symptoms, contributing to the comprehensive
-//             understanding of sleep disturbances in Parkinson's disease patients.
-//           </p>
-//           <h1 className="heading-article">Take Questionnaire Now</h1>
-//           <div>
-//             <form onSubmit={handleSubmit}>
-//               {questions.map((question, index) => (
-//                 <div key={index + 6}>
-//                   <label className="questionnaire">{question}</label>
-//                   <select
-//                     className="form-select mb-3 questionnaire"
-//                     name={`RBDResponse${index + 1}s`}
-//                     id={`response-${index}s`}
-//                     onChange={handleChange}
-//                     value={formData[`RBDResponse${index + 1}s`]}
-//                   >
-//                     <option value="" disabled></option>
-//                     <option value="No">No</option>
-//                     <option value="Yes">Yes</option>
-//                   </select>
-//                 </div>
-//               ))}
-//               <button
-//                 type="submit"
-//                 className="btn btn-lg"
-//                 style={{
-//                   backgroundColor: "#FF8A15",
-//                   color: "white",
-//                   fontSize: "16px",
-//                   paddingLeft: "20px",
-//                   paddingRight: "20px",
-//                   paddingTop: "10px",
-//                   paddingBottom: "10px",
-//                   marginTop: "5px",
-//                 }}
-//               >
-//                 Upload
-//               </button>
-//             </form>
-//           </div>
-//         </div>
-//       </div>
-//     </>
-//   );
-// }
-// export default RBD;
-
 import HealthNav from "../components/HealthNav";
 import Sidebar from "../components/Sidebar";
 import React, { useState, useEffect } from "react";
 import api from "../api";
-
+import { FloatButton, message} from "antd";
+import { DoubleLeftOutlined } from '@ant-design/icons';
 function RBD() {
   const questions = [
     "Do you experience exceptionally vivid and lifelike dreams?",
@@ -376,10 +177,16 @@ function RBD() {
     });
   };
 
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
   return (
     <>
-      <Sidebar />
+      <Sidebar isOpen={isSidebarOpen}/>
       <HealthNav />
+      <FloatButton onClick={toggleSidebar} icon={<DoubleLeftOutlined />}  className="side-button" />
       <div className="maincontent rbdcontent">
         <div className="wide-article">
           <h1 className="heading-article">

@@ -1,78 +1,159 @@
-.dashboard {
-  height: 420vh;
-  background-color: #fff0e3;
+.dashboard{
+    height:420vh;
+    background-color: #fff0e3;
 }
-.page-header {
-  font-size: 20px;
-  font-weight: 600;
+.page-header{
+    font-size: 20px;
+    font-weight: 600;
 }
-.main-page-title {
-  font-size: 35px;
-  color: rgb(13, 15, 129);
-  font-weight: 300 !important;
-  padding-top: 25px;
-  padding-bottom: -28px;
-  margin-left: 8px;
+.main-page-title{
+    font-size: 35px;
+    color: rgb(13, 15, 129);
+    font-weight: 300 !important;
+    padding-top: 25px;
+    padding-bottom: -28px;
+    margin-left: 8px;
 }
-.header-items,
-.header-items-3 {
-  color: rgb(84, 84, 84);
+.header-items,.header-items-3{
+    color: rgb(84, 84, 84);
 }
 .horizontal-scroll::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
+    width: 5px;
+    height: 5px;
+
+} 
 .horizontal-scroll::-webkit-scrollbar-thumb {
-  background: #d5d5d5;
-  border-radius: 5px;
+    background: #d5d5d5;
+    border-radius: 5px; 
 }
-.header-items {
-  margin-top: -10px;
-  margin-left: 12px;
+.header-items{
+    margin-top:-10px;
+    margin-left: 12px;
 }
-.header-items-2,
-.header-items-3 {
-  position: absolute;
-  right: 0;
+.header-items-2,.header-items-3{
+    position: absolute;
+    right: 0;
 }
-.header-items-2 {
-  margin-top: -70px;
-  margin-right: 12px;
+.header-items-2{
+    margin-top: -70px;
+    margin-right: 12px;
 }
-.header-items-3 {
-  margin-top: -45px;
-  margin-right: 12px;
+.header-items-3{
+    margin-top: -45px;
+    margin-right: 12px;
 }
-.side-1 {
-  width: 100%;
-  border-right: 1px solid rgb(224, 224, 224);
+.side-1{
+    width: 100%;
+    border-right:1px solid rgb(224, 224, 224);
+ 
+
 }
 
-.centering {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.centering{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.list-appointments {
-  width: 80%;
-  margin: auto;
-  background-color: #fff0e3;
+.list-appointments{
+    width:80%;
+    margin: auto;
+    background-color: #fff0e3;;
+
 }
-.drdash {
-  height: 260vh;
+.drdash{
+    height:260vh;
 }
 
-.side-bar-button {
-  display: none;
+@media screen and (min-width: 1824px)  {
+    .dashboard{
+        height: 320vh;
+    }
+    .article-cards{
+        width: 390px !important;
+    }
+    .drdash{
+        height: 200vh;
+    }
+
 }
-@media screen and (min-width: 1824px) {
-  .dashboard {
-    height: 320vh;
-  }
-  .article-cards {
-    width: 390px !important;
-  }
-  .drdash {
-    height: 200vh;
-  }
+@media screen and (min-width:700px) and (max-width:1024px){
+    .side-button{
+        display: block;
+    }
+    .maincontent.dashboard{
+        height: 250vh;
+        width:100%;
+        margin-left: 0;
+    }
+    .maincontent.dashboard.full{
+        margin-left: 0;
+        width: 100% !important;
+    }
+    .header-items-2{
+        display: none;
+    }
+    .upcoming-col{
+        margin-right: 80px !important;
+    }
+    .side-bar-button{
+        display: block;
+    }
+    .header-items-3{
+        display: none;
+    }
+    .drdash{
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width:699px){
+    .maincontent.dashboard{
+        width: 100%;
+        margin-left: 0;
+        height: 490vh;
+        
+    }
+    .header-items-2,.header-items-3{
+        display: none;
+    }
+    .carousels{
+        display: none;
+    }
+    .upcoming-col{
+        margin-right: 190px;
+    }
+    .drdash{
+        width: 100%;
+        margin-left: 0;
+        height: 180vh;
+    }
+    .appt-table{
+        width: 96%;
+        overflow: scroll;
+    }
+    .appt-table::-webkit-scrollbar{
+        height: 5px;
+        width: 5px;
+    }
+    .chart-1-dash,.chart-2-dash{
+        width: 100% !important;
+        float: none !important;
+        height: 200px !important;
+        margin-bottom: 10px;
+    }
+    .chart-1-dash,.chart-2-dash{
+        height: 200px !important;
+    }
+    .chart-3-dash{
+        margin-top: -100px !important;
+        margin-bottom: -20px;
+    }
+    .article-cards{
+        height: 500px !important;
+        overflow: scroll;
+    }
+    .main-page-title{
+        text-align: left;
+    }
 }

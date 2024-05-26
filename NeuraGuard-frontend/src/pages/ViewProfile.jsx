@@ -3,6 +3,8 @@ import ViewTabs from "../components/Viewtabs";
 import { UploadOutlined } from "@ant-design/icons";
 import { useState, useEffect } from "react";
 import api from "../api";
+import { FloatButton } from "antd";
+import { DoubleLeftOutlined } from '@ant-design/icons';
 
 function ViewProfile() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -224,9 +226,16 @@ function ViewProfile() {
     return age;
   };
 
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
     <>
-      <Sidebar />
+      <Sidebar isOpen={isSidebarOpen}/>
+      <FloatButton onClick={toggleSidebar} icon={<DoubleLeftOutlined />}  className="side-button" aria-label="toggle-sidebar" />
       <div className="maincontent viewprofile">
         <h1 className="page-header">View Profile</h1>
         <div className="header-viewprofile">

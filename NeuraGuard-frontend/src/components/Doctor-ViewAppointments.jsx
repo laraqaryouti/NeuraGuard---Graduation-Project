@@ -19,6 +19,7 @@ const App = () => {
           },
         });
         setUserID(userResponse.data.User.user_id);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching user data:", error);
       }
@@ -201,6 +202,7 @@ const App = () => {
       });
       setIsModalVisible(false);
       setSelectedRecord(null);
+      setLoading(false);
     } catch (error) {
       console.error(
         "Error posting data:",
