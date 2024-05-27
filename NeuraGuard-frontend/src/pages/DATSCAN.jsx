@@ -3,10 +3,8 @@ import Sidebar from "../components/Sidebar";
 import "../styling/datscan.css";
 
 import React, { useState, useEffect } from "react";
-import { DoubleLeftOutlined } from '@ant-design/icons';
-import { FloatButton } from "antd";
+
 import api from "../api";
-import { message } from "antd";
 
 const DATSCAN = () => {
   const [DATSCAN, setDATSCAN] = useState([]);
@@ -15,6 +13,8 @@ const DATSCAN = () => {
     caudate_L: "",
     putamen_R: "",
     putamen_L: "",
+    putamen_L_ant: "",
+    putamen_R_ant: "",
     Datscan_Result: true,
   });
   const [userID, setUserID] = useState("User");
@@ -44,6 +44,8 @@ const DATSCAN = () => {
         caudate_L: existing.caudate_L.toString(),
         putamen_R: existing.putamen_R.toString(),
         putamen_L: existing.putamen_L.toString(),
+        putamen_L_ant: existing.putamen_L_ant.toString(),
+        putamen_R_ant: existing.putamen_R_ant.toString(),
         Datscan_Result: existing.Datscan_Result,
       });
     }
@@ -75,6 +77,8 @@ const DATSCAN = () => {
       caudate_L: parseFloat(inputs.caudate_L),
       putamen_R: parseFloat(inputs.putamen_R),
       putamen_L: parseFloat(inputs.putamen_L),
+      putamen_L_ant: parseFloat(inputs.putamen_L_ant),
+      putamen_R_ant: parseFloat(inputs.putamen_R_ant),
       Datscan_Result: inputs.Datscan_Result === false ? false : true,
       UserID: userID,
     };
@@ -96,8 +100,6 @@ const DATSCAN = () => {
       fetchDATSCAN();
     } catch (error) {
       console.error("Error submitting DATSCAN data:", error);
-      message.error("Error Submitting Data.")
-
     }
 
     setInputs({
@@ -105,20 +107,16 @@ const DATSCAN = () => {
       caudate_L: "",
       putamen_R: "",
       putamen_L: "",
+      putamen_L_ant: "",
+      putamen_R_ant: "",
       Datscan_Result: false,
     });
-  };
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
   };
 
   return (
     <>
-      <Sidebar isOpen={isSidebarOpen} />
+      <Sidebar />
       <HealthNav />
-      <FloatButton onClick={toggleSidebar} icon={<DoubleLeftOutlined />}  className="side-button" aria-label="toggle-sidebar"/>
       <div className="maincontent datscancontent">
         <div className="wide-article">
           <h1 className="heading-article">
@@ -259,6 +257,46 @@ const DATSCAN = () => {
             <div id="passwordHelpBlock" className="form-text info-input">
               The Putamen Left value represents the uptake of the radiotracer in
               the left putamen.
+            </div>
+            <label className="form-label">Putamen Right Anterior</label>
+            <input
+              type="text"
+              step="0.01"
+              id="putamen_R_ant"
+              name="putamen_R_ant"
+              className="form-control form-control-lg 
+            questionnaire"
+              placeholder="Enter Putamen Right Anterior Value"
+              min="0"
+              onChange={handleChange}
+              value={inputs.putamen_R_ant}
+            />
+            <div
+              id="passwordHelpBlock"
+              className="form-text info-input datscan-input"
+            >
+              Represents the measurement of dopamine transporter density in the
+              anterior part of the right putamen.
+            </div>
+            <label className="form-label">Putamen Left Anterior</label>
+            <input
+              type="text"
+              step="0.01"
+              id="putamen_L_ant"
+              name="putamen_L_ant"
+              className="form-control form-control-lg 
+            questionnaire"
+              placeholder="Enter Putamen Left Anterior Value"
+              min="0"
+              onChange={handleChange}
+              value={inputs.putamen_L_ant}
+            />
+            <div
+              id="passwordHelpBlock"
+              className="form-text info-input datscan-input"
+            >
+              Represents the measurement of dopamine transporter density in the
+              anterior part of the left putamen.
             </div>
             <label className="form-label">DATSCAN Result</label>
             <select

@@ -102,9 +102,11 @@ class DATSCANBase(BaseModel):
     caudate_L: float
     putamen_R: float
     putamen_L: float
+    putamen_R_ant: float
+    putamen_L_ant: float
     Datscan_Result :bool
     UserID:str
-    
+
 class DATSCANModel(DATSCANBase):
     DATSCANID: str= Field(default_factory=generate_id_DATSCAN)
 

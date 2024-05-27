@@ -73,6 +73,8 @@ class DATSCAN(Base):
     caudate_R = Column(Float, nullable=False)
     putamen_L = Column(Float, nullable=False)
     putamen_R = Column(Float, nullable=False)
+    putamen_L_ant = Column(Float, nullable=False)
+    putamen_R_ant = Column(Float, nullable=False)
     Datscan_Result = Column(Integer, CheckConstraint("Datscan_Result IN (0, 1)"), nullable=False)
     UserID=Column(String(6),ForeignKey('User.UserID'),nullable=False)
 
