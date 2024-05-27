@@ -23,7 +23,7 @@ import logging
 from io import BytesIO
 from fastapi.responses import StreamingResponse,JSONResponse
 import base64
-
+import requests
 
 app = FastAPI()
 model = joblib.load('model.pkl')
@@ -506,6 +506,57 @@ class CombinedData(BaseModel):
         orm_mode = True
 
 
+class InputData(BaseModel):
+    PATNO: int
+    ENROLL_AGE: float
+    AV133STDY: float
+    TAUSTDY: float
+    GAITSTDY: float
+    PISTDY: float
+    SVASTDY: float
+    PPMI_ONLINE_ENROLL: float
+    PHENOCNV: float
+    ENRLPINKI: float
+    ENRLPRKN: float
+    ENRLSRDC: float
+    ENRLHPSM: float
+    ENRURED: float
+    ENRLURRK2: float
+    ENRLENCA: float
+    ENRLGBA: float
+    TOTAL_CORRECT: float
+    PTCGBOTH: float
+    DRMVIVID: float
+    DRMAGRAC: float
+    DRMNOCTB: float
+    SLPLMBMV: float
+    SLPINJUR: float
+    DRMVERBL: float
+    DRMFIGHT: float
+    DRMUMV: float
+    DRMOBJFL: float
+    MVAWAKEN: float
+    DRMREMEM: float
+    SLPDSTRB: float
+    STROKE: float
+    HETRA: float
+    PARKISM: float
+    RLS: float
+    NARCLPSY: float
+    DEPRS: float
+    EPILEPSY: float
+    BRNINFM: float
+    DATSCAN: float
+    DATSCANTRC: float
+    SCNLOC: float
+    SCNINJCT: float
+    DATSCAN_CAUDATE_R: float
+    DATSCAN_CAUDATE_L: float
+    DATSCAN_PUTAMEN_R: float
+    DATSCAN_PUTAMEN_L: float
+    DATSCAN_PUTAMEN_R_ANT: float
+    DATSCAN_PUTAMEN_L_ANT: float
+    DATSCAN_VISINTRP: float
 
 
 
@@ -1073,59 +1124,6 @@ def get_combined_data(user_id: str, db: Session = Depends(get_db)):
     )
     
     return combined_data
-class InputData(BaseModel):
-    PATNO: int
-    ENROLL_AGE: float
-    AV133STDY: float
-    TAUSTDY: float
-    GAITSTDY: float
-    PISTDY: float
-    SVASTDY: float
-    PPMI_ONLINE_ENROLL: float
-    PHENOCNV: float
-    ENRLPINKI: float
-    ENRLPRKN: float
-    ENRLSRDC: float
-    ENRLHPSM: float
-    ENRURED: float
-    ENRLURRK2: float
-    ENRLENCA: float
-    ENRLGBA: float
-    TOTAL_CORRECT: float
-    PTCGBOTH: float
-    DRMVIVID: float
-    DRMAGRAC: float
-    DRMNOCTB: float
-    SLPLMBMV: float
-    SLPINJUR: float
-    DRMVERBL: float
-    DRMFIGHT: float
-    DRMUMV: float
-    DRMOBJFL: float
-    MVAWAKEN: float
-    DRMREMEM: float
-    SLPDSTRB: float
-    STROKE: float
-    HETRA: float
-    PARKISM: float
-    RLS: float
-    NARCLPSY: float
-    DEPRS: float
-    EPILEPSY: float
-    BRNINFM: float
-    DATSCAN: float
-    DATSCANTRC: float
-    SCNLOC: float
-    SCNINJCT: float
-    DATSCAN_CAUDATE_R: float
-    DATSCAN_CAUDATE_L: float
-    DATSCAN_PUTAMEN_R: float
-    DATSCAN_PUTAMEN_L: float
-    DATSCAN_PUTAMEN_R_ANT: float
-    DATSCAN_PUTAMEN_L_ANT: float
-    DATSCAN_VISINTRP: float
-
-
 
 
 
@@ -1227,3 +1225,10 @@ async def reset_password(request: ResetPasswordRequest, db: Session = Depends(ge
         return {"message": "A new temporary password has been sent to your email."}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+    
+
+
+
+
+
+

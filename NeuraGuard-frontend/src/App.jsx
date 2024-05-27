@@ -1,6 +1,6 @@
 
 import SignUp from './pages/SignUp.jsx'
-import SignIn from './pages/SignIn.jsx'
+import SignIn from './pages/Signin.jsx'
 import Auth from './pages/Auth'
 import Index from './pages/Index'
 import HealthData from './pages/HealthData.jsx'
@@ -29,6 +29,8 @@ import DoctorPatients from './pages/Doctor-Patients.jsx';
 import DoctorDashboard from './pages/Doctor-Dashboard.jsx';
 import ErrorPage from './pages/ErrorPage.jsx';
 import DrViewProfile from "./pages/Doctor-ViewProfile.jsx";
+
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -104,7 +106,7 @@ const router = createBrowserRouter([
     path: "/doctor-profile",
     element: <DrViewProfile/>,
   },
-  
+
 ]);
 function App() {
   

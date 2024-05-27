@@ -2,7 +2,7 @@ from datetime import timedelta, datetime, timezone
 from typing import Annotated
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel,Field
-from sqlalchemy.orm import session
+from sqlalchemy.orm import Session
 from starlette import status
 from database import SessionLocal
 from models import User
@@ -68,7 +68,7 @@ def get_db():
     finally:
         db.close()
 
-db_dependancy = Annotated[session, Depends(get_db)]
+db_dependancy = Annotated[Session, Depends(get_db)]
 
 @router.post("/",status_code=status.HTTP_201_CREATED)
 async def create_user(db: db_dependancy, 
